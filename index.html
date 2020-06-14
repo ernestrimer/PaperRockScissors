@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <script src="https://kit.fontawesome.com/d431368ab4.js" crossorigin="anonymous"></script>
+  <title>Paper Rock Scissors</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<h1>Let's Play Paper - Rock - Scissors</h1>
+
 <body>
+  <h1>Let's Play Paper - Rock - Scissors</h1>
   
-  <img id="rock" src="https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="">
-
-
-  https://images.unsplash.com/photo-1506367289495-02a78c329501?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
-  
+  <div id="yourChoice">Select One</div>
+  <div id="yourChoiceBtns">
+    <button id="rock">
+      <i class="far fa-hand-rock"></i>
+    </button>
+    <button id="scissors">
+      <i class="far fa-hand-scissors"></i>
+    </button>
+    <button id="paper">
+      <i class="far fa-hand-paper"></i>
+   </button>
+  </div>
+   
+   <h2><div id='user'></div></h2>
+   <h2><div id='computer'></div></h2>
+   <h2><div id='outcome'></div></h2>
 </body>
+<script src="prs.js"></script>
 </html>
