@@ -16,10 +16,14 @@
 // Color a win differently than a loss so it is easy to tell if the user won.
 // hint: add and remove classes: http://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript(
 
+  var userScore = 0;
+  var compScore = 0;
+  var tieScore = 0;
 
-document.getElementById("rock").onclick = playRock;
-document.getElementById("paper").onclick = playPaper;
-document.getElementById("scissors").onclick = playScissors;
+
+  document.getElementById("rock").onclick = playRock;
+  document.getElementById("paper").onclick = playPaper;
+  document.getElementById("scissors").onclick = playScissors;
   
   //associated function:
   function playRock() {
@@ -39,7 +43,7 @@ document.getElementById("scissors").onclick = playScissors;
 function play(userChoice)
 {
   compChoice = getCompChoice();
-  
+
   //Indicate what the user selected
   document.getElementById("user").innerHTML = "<p>You played " + userChoice + ".</p>";
   //Indicate what the computer selected
@@ -49,18 +53,23 @@ function play(userChoice)
   if (userChoice === compChoice)
   {
     document.getElementById("outcome").innerHTML = "<p>Draw. Play Again!</p>";
+    tieScore++;
   }
   else if (userChoice === "paper" && compChoice === "rock" || userChoice === "rock" && compChoice === "scissors" || userChoice === "scissors" && compChoice === "paper")
   {
     document.getElementById("outcome").innerHTML = "<p>You Win!</p>";
+    userScore++;
     //Add 1 point to user score
   }
   else
   {
     document.getElementById("outcome").innerHTML = "<p>You Lose!</p>";
     //Add q point to computer score
+    compScore++;
   }
 }
+
+document.getElementById('scoreboard').innerHTML = "<p>You: " + userScore + " - Computer: " + compScore + " - Ties: " + tieScore + "</p>";
 
 function getCompChoice ()
 {
