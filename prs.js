@@ -7,13 +7,16 @@
 
 
 //// Bonus Objectives:
-// Keep track of wins, losses, & ties
-// remember this is only going to be until the user refreshes the browser. We don't have anything fetching from or posting to a database yet!
+// COMPLETE // Keep track of wins, losses, & ties
 //COMPLETE // Use images to make a choice // hint: you can listen for the click event on any HTML element!
 // Be able to start a new game without refreshing
+  //Add a button: Start Over
+  //Function to reset scores to zero, incresaseScore()
+
 // Track the percentage of times the user has won/ lost/ tied
 // See if you can add ES 6 to your project!
 // Color a win differently than a loss so it is easy to tell if the user won.
+  //Use CSS to do this
 // hint: add and remove classes: http://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript(
 
   var userScore = 0;
@@ -54,11 +57,13 @@ function play(userChoice)
   {
     document.getElementById("outcome").innerHTML = "<p>Draw. Play Again!</p>";
     tieScore++;
+    increaseScore();
   }
   else if (userChoice === "paper" && compChoice === "rock" || userChoice === "rock" && compChoice === "scissors" || userChoice === "scissors" && compChoice === "paper")
   {
     document.getElementById("outcome").innerHTML = "<p>You Win!</p>";
     userScore++;
+    increaseScore();
     //Add 1 point to user score
   }
   else
@@ -66,10 +71,22 @@ function play(userChoice)
     document.getElementById("outcome").innerHTML = "<p>You Lose!</p>";
     //Add q point to computer score
     compScore++;
+    increaseScore();
   }
 }
 
+function increaseScore () {
 document.getElementById('scoreboard').innerHTML = "<p>You: " + userScore + " - Computer: " + compScore + " - Ties: " + tieScore + "</p>";
+}
+
+document.getElementById('startOver').addEventListener('click', startOver);
+
+function startOver () {
+  userScore = 0;
+  compScore = 0;
+  tieScore = 0;
+  increaseScore();
+}
 
 function getCompChoice ()
 {
