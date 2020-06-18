@@ -5,15 +5,12 @@
 //COMPLETE // Display the user and computers choice on the screen
 //COMPLETE // Display the winner
 
-
 //// Bonus Objectives:
 // COMPLETE // Keep track of wins, losses, & ties
 // COMPLETE // Use images to make a choice // hint: you can listen for the click event on any HTML element!
-// COMPLTER // Be able to start a new game without refreshing
+// COMPLETE // Be able to start a new game without refreshing
+// COMPLETE // Track the percentage of times the user has won/ lost/ tied
 
-// Track the percentage of times the user has won/ lost/ tied
-  // Batting Average math userScore/ sum (userScore, compScore, tieScore)
-  
 // See if you can add ES 6 to your project! 
 // Color a win differently than a loss so it is easy to tell if the user won.
   //Use CSS to do this
@@ -22,6 +19,10 @@
   var userScore = 0;
   var compScore = 0;
   var tieScore = 0;
+  var plays
+  var winPercent = 0;
+  var losePercent = 0;
+  var tiePercent = 0;
 
 
   document.getElementById("rock").onclick = playRock;
@@ -57,26 +58,33 @@ function play(userChoice)
   {
     document.getElementById("outcome").innerHTML = "<p>Draw. Play Again!</p>";
     tieScore++;
+    percentage();
     increaseScore();
   }
   else if (userChoice === "paper" && compChoice === "rock" || userChoice === "rock" && compChoice === "scissors" || userChoice === "scissors" && compChoice === "paper")
   {
     document.getElementById("outcome").innerHTML = "<p>You Win!</p>";
     userScore++;
+    percentage();
     increaseScore();
-    //Add 1 point to user score
   }
   else
   {
     document.getElementById("outcome").innerHTML = "<p>You Lose!</p>";
     //Add q point to computer score
     compScore++;
+    percentage();
     increaseScore();
   }
 }
 
 function increaseScore () {
-document.getElementById('scoreboard').innerHTML = "<p>You: " + userScore + " - Computer: " + compScore + " - Ties: " + tieScore + "</p>";
+document.getElementById('userScore').innerHTML = userScore;
+document.getElementById('compScore').innerHTML = compScore;
+document.getElementById('tieScore').innerHTML = tieScore;
+document.getElementById('winPercent').innerHTML = winPercent;
+document.getElementById('losePercent').innerHTML = losePercent;
+document.getElementById('tiePercent').innerHTML = tiePercent;
 }
 
 document.getElementById('startOver').addEventListener('click', startOver);
@@ -85,9 +93,19 @@ function startOver () {
   userScore = 0;
   compScore = 0;
   tieScore = 0;
+  winPercent = 0;
+  losePercent = 0;
+  tiePercent = 0;
   increaseScore();
 }
 
+function percentage () {
+  plays = userScore + compScore + tieScore;
+  winPercent = (userScore/plays * 100).toFixed(1) + '%';
+  losePercent = (compScore/plays * 100).toFixed(1) + '%';
+  tiePercent = (tieScore/plays * 100).toFixed(1) + '%';
+}
+a
 function getCompChoice ()
 {
   var prs = ["paper", "rock", "scissors"];
