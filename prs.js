@@ -8,13 +8,13 @@
 
 //// Bonus Objectives:
 // COMPLETE // Keep track of wins, losses, & ties
-//COMPLETE // Use images to make a choice // hint: you can listen for the click event on any HTML element!
-// Be able to start a new game without refreshing
-  //Add a button: Start Over
-  //Function to reset scores to zero, incresaseScore()
+// COMPLETE // Use images to make a choice // hint: you can listen for the click event on any HTML element!
+// COMPLTER // Be able to start a new game without refreshing
 
 // Track the percentage of times the user has won/ lost/ tied
-// See if you can add ES 6 to your project!
+  // Batting Average math userScore/ sum (userScore, compScore, tieScore)
+  
+// See if you can add ES 6 to your project! 
 // Color a win differently than a loss so it is easy to tell if the user won.
   //Use CSS to do this
 // hint: add and remove classes: http://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript(
